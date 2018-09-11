@@ -75,6 +75,7 @@ export class FileInput extends Component {
     }
 
     onDrop = files => {
+        console.log("added");
         const updatedFiles = this.props.multiple
             ? [...this.state.files, ...files.map(this.transformFile)]
             : [...files.map(this.transformFile)];
@@ -89,6 +90,7 @@ export class FileInput extends Component {
     };
 
     onRemove = file => () => {
+                console.log("deleted");
         const filteredFiles = this.state.files.filter(
             stateFile => !shallowEqual(stateFile, file)
         );
